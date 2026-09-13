@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>个人博客</title>
+    <link>https://example.github.io</link>
+    <description>学习笔记，记录学习过程。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 13 Sep 2026 12:46:55 GMT</lastBuildDate>
+    <item>
+      <title>linux安装内核与配置grub恢复环境</title>
+      <link>https://example.github.io/posts/2026-9-13-kernel</link>
+      <guid isPermaLink="true">https://example.github.io/posts/2026-9-13-kernel</guid>
+      <pubDate>Wed, 12 Sep 2001 16:00:00 GMT</pubDate>
+      <category>技术</category>
+      <description>自己编译与安装linux内核，并配置grub准备恢复路径</description>
+    </item>
+    <item>
+      <title>linux arm 架构下的stage-2翻译机制</title>
+      <link>https://example.github.io/posts/2026-9-13-arm-s2</link>
+      <guid isPermaLink="true">https://example.github.io/posts/2026-9-13-arm-s2</guid>
+      <pubDate>Wed, 12 Sep 2001 16:00:00 GMT</pubDate>
+      <category>linux源码</category>
+      <description>linux arm 架构下虚拟化的 stage-2 翻译机制，用于虚拟化的二阶段地址翻译，如何管理多个虚拟机</description>
+    </item>
+    <item>
+      <title>iBMC使用</title>
+      <link>https://example.github.io/posts/2026-9-12-hello</link>
+      <guid isPermaLink="true">https://example.github.io/posts/2026-9-12-hello</guid>
+      <pubDate>Tue, 11 Sep 2001 16:00:00 GMT</pubDate>
+      <category>技术</category>
+      <description>用iBMC恢复崩溃服务器的案例</description>
+    </item>
+  </channel>
+</rss>

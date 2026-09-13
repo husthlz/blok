@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hl-comment: #6a737d;
+  --hl-keyword: #d73a49;
+  --hl-string: #032f62;
+  --hl-number: #005cc5;
+  --hl-title: #6f42c1;
+  --hl-attr: #005cc5;
+  --hl-built: #e36209;
+  --hl-literal: #005cc5;
+  --hl-meta: #6a737d;
+  --hl-tag: #22863a;
+}
+
+.dark {
+  --hl-comment: #8b949e;
+  --hl-keyword: #ff7b72;
+  --hl-string: #a5d6ff;
+  --hl-number: #79c0ff;
+  --hl-title: #d2a8ff;
+  --hl-attr: #79c0ff;
+  --hl-built: #ffa657;
+  --hl-literal: #79c0ff;
+  --hl-meta: #8b949e;
+  --hl-tag: #7ee787;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 代码块与行内代码 */
+.prose pre {
+  background-color: #f6f8fa;
+  color: #24292e;
+  border: 1px solid #eaecef;
+}
+.dark .prose pre {
+  background-color: #161b22;
+  color: #e6edf3;
+  border-color: #30363d;
+}
+.prose :not(pre) > code {
+  background-color: rgba(127, 127, 127, 0.15);
+  padding: 0.15em 0.4em;
+  border-radius: 0.3rem;
+  font-weight: 400;
+}
+
+/* highlight.js token 颜色（随主题切换） */
+.hljs-comment,
+.hljs-quote {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-doctag,
+.hljs-type {
+  color: var(--hl-keyword);
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--hl-string);
+}
+.hljs-number,
+.hljs-literal {
+  color: var(--hl-number);
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.function_,
+.hljs-section,
+.hljs-name {
+  color: var(--hl-title);
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-property {
+  color: var(--hl-attr);
+}
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-meta {
+  color: var(--hl-built);
+}
+.hljs-tag {
+  color: var(--hl-tag);
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}
+
+/* 首页樱花雨背景 */
+.sakura-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sakura-petal {
+  position: absolute;
+  top: -12vh;
+  --drift: 35vw; /* 向右上生成、向左下飘落的水平位移 */
+  will-change: transform;
+  animation-name: sakura-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.sakura-petal > i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 4px rgba(255, 158, 196, 0.4));
+  animation-name: sakura-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.sakura-petal > i svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes sakura-fall {
+  0% {
+    transform: translate(0, -12vh) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  92% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(calc(-1 * var(--drift)), 112vh) rotate(40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sakura-sway {
+  0% {
+    transform: translateX(-14px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(14px) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sakura-layer {
+    display: none;
+  }
+}
+
+/* 鼠标美化光标（来源：Akie秋绘 鼠标UI，作者 Moos柚眠，仅作展示、禁止二改/售卖）
+   规则：.ani 在前（Firefox 等支持动画），.png 兜底（Chromium 不支持 .ani，自动跳过用 PNG）。
+   PNG 由原始 .ani/.cur 转换而来，带透明度与热点坐标。 */
+body {
+  cursor: url('/cursors/Normal-Select.ani') 0 0, url('/cursors/Normal-Select.png') 0 0, auto;
+}
+
+a,
+button,
+[type='button'],
+[type='submit'],
+[role='button'],
+summary,
+label[for] {
+  cursor: url('/cursors/Link.ani') 0 0, url('/cursors/Link.png') 0 0, pointer;
+}
+
+input,
+textarea,
+select,
+[contenteditable='true'] {
+  cursor: url('/cursors/Text-Select.ani') 12 23, url('/cursors/Text-Select.png') 12 23, text;
+}
